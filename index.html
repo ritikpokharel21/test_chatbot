@@ -9,51 +9,17 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Nunito', sans-serif;
-      background: #f0f4f8;
+      background: #ffffff;
       height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      overflow: hidden;
     }
     .chat-container {
       width: 100%;
-      max-width: 680px;
       height: 100vh;
       background: #ffffff;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.10);
     }
-    header {
-      background: linear-gradient(135deg, #1a6b3c 0%, #2d9e5f 100%);
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
-    }
-    .header-icon {
-      width: 42px; height: 42px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem;
-      flex-shrink: 0;
-    }
-    .header-text h1 { font-size: 1rem; font-weight: 800; color: #ffffff; line-height: 1.2; }
-    .online-badge {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      background: rgba(255,255,255,0.15);
-      padding: 4px 10px;
-      border-radius: 20px;
-    }
-    .online-dot { width: 7px; height: 7px; background: #7effc0; border-radius: 50%; animation: blink 2s infinite; }
-    .online-badge span { font-size: 0.7rem; color: #d0ffe8; font-weight: 600; }
-    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
     .chips-bar {
       padding: 10px 14px;
       display: flex;
@@ -140,21 +106,10 @@
     #send-btn:hover { transform: scale(1.07); }
     #send-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
     #send-btn svg { width: 17px; height: 17px; }
-    .footer-note { text-align: center; font-size: 0.62rem; color: #aab8c2; padding: 5px 0 6px; background: #fff; font-weight: 600; }
   </style>
 </head>
 <body>
 <div class="chat-container">
-  <header>
-    <div class="header-icon">🎶</div>
-    <div class="header-text">
-      <h1>Festival International 2026 — AI Chatbot</h1>
-    </div>
-    <div class="online-badge">
-      <div class="online-dot"></div>
-      <span>Online</span>
-    </div>
-  </header>
 
   <div class="chips-bar">
     <button class="chip" onclick="sendChip(this)">🎵 Music lineup</button>
@@ -173,8 +128,7 @@
     <div class="msg bot">
       <div class="avatar">🎶</div>
       <div class="bubble">
-        Bienvenue! Welcome to <strong>Festival International de Louisiane 2026</strong> — celebrating 40 years of world music in Lafayette! 🎉<br><br>
-        Ask me anything about the festival — music, food, payment, parking, stages, schedules, and more. How can I help you?
+        Welcome to <strong>Festival International de Louisiane 2026</strong>. I'm your AI Assistant.
       </div>
     </div>
   </div>
@@ -188,11 +142,11 @@
       </svg>
     </button>
   </div>
-  <div class="footer-note">Festival International de Louisiane · Apr 22–26, 2026 · Lafayette, LA · festivalinternational.org</div>
+
 </div>
 
 <script>
-const SYSTEM_PROMPT = `You are a friendly, enthusiastic local guide for the Festival International de Louisiane 2026 in Lafayette, Louisiana. Speak warmly, like a helpful local who loves the festival. Occasionally use a French word or phrase naturally (like "Laissez les bons temps rouler!" or "Bienvenue!"). The festival runs April 22-26, 2026 and celebrates its 40th anniversary. It is the largest international music festival in the United States. Official website: https://www.festivalinternational.org
+const SYSTEM_PROMPT = `You are a friendly, enthusiastic local guide for the Festival International de Louisiane 2026 in Lafayette, Louisiana. Speak warmly, like a helpful local who loves the festival. Use English only. The festival runs April 22-26, 2026 and celebrates its 40th anniversary. It is the largest international music festival in the United States. Official website: https://www.festivalinternational.org
 
 === ADMISSION & GENERAL ===
 - Admission is 100% FREE - no entry fee, no ticket needed
@@ -228,12 +182,11 @@ Americana/Folk: Rhiannon Giddens (U.S.), Sonny Landreth, GIVERS In Light Live, S
 Celtic/Francophone: Vishten (Prince Edward Island), Breabach (Scotland), Jacques Surette (Nova Scotia), Beauséjour (New Brunswick), Thome Young (New Brunswick), Mathieu Lippe (Quebec)
 Local/Louisiana: Sally Babys Silver Dollars, Karma and the Killjoys, Dustin Dale Gaspard, Soul Express Brass Band, Amis du Teche, Dwight James and the Royals, KC Jones, The Revelers, Krewe de Canailles, Bas Clas, Beau Cheval, Cashier, Michael Juan Nunez, Yvette Landry Trio, Mike Dean Band, Burke Riley Trio
 Youth/Educational: SOLA Violins Intl Fiddle Summit, Acadiana Symphony Youth Orchestra, School of Rock Lafayette, The Babineaux Sisters, Battle of the Bands, French Immersion Student Performance, Lafayette Lion Dance, New Natives Brass Band
-Full schedule: festivalinternational.org/schedule
 
 === FOOD & DRINK ===
-- International food vendors throughout festival grounds (Asian, Cajun, Greek and more!)
+- International food vendors throughout grounds (Asian, Cajun, Greek and more!)
 - LUS LA Craft Biergarten — craft beers near Jefferson & Buchanan
-- Beer stands at multiple locations across grounds
+- Beer stands at multiple locations
 - Cocktails and mixed drinks available
 - Non-alcoholic beverages available
 - THC Beverages available
@@ -243,12 +196,11 @@ Full schedule: festivalinternational.org/schedule
 - More info: festivalinternational.org/festival-eats
 
 === EXPERIENCES & SPECIAL EVENTS ===
-- Festival Pass Program — VIP perks like close-up stage views and private restrooms. Passes go on sale early February 2026. Visit festivalinternational.org/passes
+- Festival Pass Program — VIP perks like close-up stage views and private restrooms. festivalinternational.org/passes
 - Fest Fam Bingo — fun activity for attendees
 - Courir 5K Run — festivalinternational.org/courir-5k
-- Special Events — festivalinternational.org/specialevents
 - Kids / Scene des Jeunes — dedicated kids area at Sonic Scene des Jeunes (northwest corner)
-- Festival Crafts — art market with handcrafted items, vendors accept cash/card
+- Festival Crafts — art market, vendors accept cash/card
 - Marche du Monde (World Market) — northwest area
 - Marche des Arts (Art Market) — two locations on grounds
 - Pavillon de Cuisine — cooking pavilion
@@ -259,51 +211,43 @@ Full schedule: festivalinternational.org/schedule
 - Shuttle stops available near Lee St (southwest corner)
 - Bike Lafayette Bike Corral on site
 - View full maps: festivalinternational.org/maps-transportation
-- Site map: festivalinternational.org/site-map
 
 === AMENITIES & SERVICES ===
 - WiFi (LFT Fiber) throughout grounds
 - Cash Top-Up / Wristband Registration tents on site
 - Festival Merchandise store (La Boutique du Festival)
 - First Horizon Rain Angels Tent — weather shelter
-- Restrooms (Toilettes) at multiple locations
+- Restrooms at multiple locations throughout grounds
 - Accessible/wheelchair facilities throughout
-- Baby Nursing Area (Espace bebe) available
-- Lost & Found — fill out form at festivalinternational.org/faq
-- Medical Aid (Aide medicale) at multiple locations — look for red cross on map
+- Baby Nursing Area available
+- Lost & Found — festivalinternational.org/faq
+- Medical Aid at multiple locations — red cross on map
 - Volunteer/Info Centers on site
-- French Help Desk (Aide en francais) for Francophone visitors
 - McDonald's Pin Booth at multiple locations
 - Media Center on site
 
 === RULES & WHAT TO BRING ===
-- NO dogs allowed during Festival (to protect pets and patrons)
+- NO dogs allowed
 - NO ice chests allowed
 - NO tents allowed
-- Lawn chairs, blankets, wagons, and handheld umbrellas ARE allowed
-- Be mindful of space and large crowds
+- Lawn chairs, blankets, wagons, handheld umbrellas ARE allowed
 
 === VOLUNTEERING ===
-- Volunteers are welcome and needed!
 - Sign up at: festivalinternational.org/volunteer
-- Pick your shift and register online
 
 === SUPPORT THE FESTIVAL ===
-- Festival is a nonprofit event — donations help keep it free
-- Buy merchandise: festivalinternational.org shop
-- Purchase Festival Passes for VIP perks
-- Beverage purchases on site support the festival
+- Festival is a nonprofit — donations help keep it free
 - Donor programs: festivalinternational.org/support
 
 === ACCOMMODATIONS ===
 - Hotel info: festivalinternational.org/accommodations
 
-Keep answers short, friendly and easy to read. Use line breaks for lists. Always be helpful and enthusiastic. If someone asks about something not listed here, direct them to festivalinternational.org or suggest visiting an info booth on site. Never make up information.`;
+Keep answers short, friendly and easy to read. Use line breaks for lists. Always be helpful. If unsure, direct to festivalinternational.org or info booths on site. Never make up information.`;
 
-const a = 'gsk_YLeh45xDirXkb';
-const b = 'yTtj5gIWGdyb3FYM';
-const c = 'CRYP4B0RTH9b861O';
-const d = 'Ulvt7ha';
+const a = 'gsk_cqhl9EANhmnzjn';
+const b = 'PVqd69WGdyb3FYHd';
+const c = 'syxltow8ZY5AX6SS';
+const d = 'XMGo9v';
 const GROQ_KEY = a + b + c + d;
 
 let history = [];
